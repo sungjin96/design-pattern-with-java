@@ -1,9 +1,7 @@
 package com.design.pattern;
 
 import com.design.pattern.builder.v1.Computer;
-import com.design.pattern.builder.v1.Blueprint;
-import com.design.pattern.builder.v1.ComputerFactory;
-import com.design.pattern.builder.v1.LgGramBlueprint;
+import com.design.pattern.builder.v2.ComputerBuilder;
 
 /**
  * Created by marathoner on 2021/05/10
@@ -16,10 +14,17 @@ public class Main {
 //        System.out.println(circle1.getX()+ ", "+ circle1.getY()+", "+circle1.getR());
 //        System.out.println(circle2.getX()+ ", "+ circle2.getY()+", "+circle2.getR());
 
-        ComputerFactory factory = new ComputerFactory();
-        factory.setBlueprint(new LgGramBlueprint());
-        Computer computer = factory.makeAndGet();
+//        ComputerFactory factory = new ComputerFactory();
+//        factory.setBlueprint(new LgGramBlueprint());
+//        Computer computer = factory.makeAndGet();
+//        System.out.println(computer);
 
+        Computer computer = ComputerBuilder
+                .builder()
+                .cpu("i7")
+                .ram("8G")
+                .storage("1T")
+                .build();
         System.out.println(computer);
 
     }
