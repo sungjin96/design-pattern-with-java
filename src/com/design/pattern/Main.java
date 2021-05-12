@@ -8,6 +8,9 @@ import com.design.pattern.abstractFactory.v2.abst.Button;
 import com.design.pattern.abstractFactory.v2.abst.GuiFac;
 import com.design.pattern.abstractFactory.v2.abst.TextArea;
 import com.design.pattern.abstractFactory.v2.concrete.FactoryInstance;
+import com.design.pattern.bridge.DefaultMCF;
+import com.design.pattern.bridge.PrintMorseCode;
+import com.design.pattern.bridge.SoundMCF;
 
 /**
  * Created by marathoner on 2021/05/10
@@ -50,11 +53,16 @@ public class Main {
 //        --------------------------------------------------------------
 
 //        ------------------- Abstract Factory Pattern ------------------------
-        GuiFac fac = FactoryInstance.getGuiFac();
-        Button button = fac.createButton();
-        TextArea textArea = fac.createTextArea();
-        button.click();
-        System.out.println(textArea.getText());
+//        GuiFac fac = FactoryInstance.getGuiFac();
+//        Button button = fac.createButton();
+//        TextArea textArea = fac.createTextArea();
+//        button.click();
+//        System.out.println(textArea.getText());
+//        --------------------------------------------------------------
+
+//        ------------------- Bridge Pattern ------------------------
+        PrintMorseCode code = new PrintMorseCode(new SoundMCF());
+        code.g().a().r().a().m();
 //        --------------------------------------------------------------
 
     }
