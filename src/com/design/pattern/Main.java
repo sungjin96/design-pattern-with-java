@@ -11,6 +11,8 @@ import com.design.pattern.abstractFactory.v2.concrete.FactoryInstance;
 import com.design.pattern.bridge.DefaultMCF;
 import com.design.pattern.bridge.PrintMorseCode;
 import com.design.pattern.bridge.SoundMCF;
+import com.design.pattern.composite.File;
+import com.design.pattern.composite.Folder;
 
 /**
  * Created by marathoner on 2021/05/10
@@ -61,8 +63,25 @@ public class Main {
 //        --------------------------------------------------------------
 
 //        ------------------- Bridge Pattern ------------------------
-        PrintMorseCode code = new PrintMorseCode(new SoundMCF());
-        code.g().a().r().a().m();
+//        PrintMorseCode code = new PrintMorseCode(new SoundMCF());
+//        code.g().a().r().a().m();
+//        --------------------------------------------------------------
+
+//        ------------------- Composite Pattern ------------------------
+//        Folder root = new Folder("root"), home = new Folder("home"), sungjin = new Folder("sungjin"), music = new Folder("music"), picture = new Folder("picture"), doc = new Folder("doc"), usr = new Folder("usr");
+//        File track1 = new File("track1"), track2 = new File("track2"), pric1 = new File("pric1"), doc1 = new File("doc1"), java = new File("java");
+//
+//        root.addComponent(home);
+//        home.addComponent(sungjin);
+//        sungjin.addComponent(music);
+//        sungjin.addComponent(picture);
+//        sungjin.addComponent(doc);
+//        music.addComponent(track1);
+//        music.addComponent(track2);
+//        picture.addComponent(pric1);
+//        doc.addComponent(doc1);
+//        root.addComponent(usr);
+//        usr.addComponent(java);
 //        --------------------------------------------------------------
 
     }
