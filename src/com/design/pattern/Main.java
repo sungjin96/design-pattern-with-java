@@ -13,6 +13,12 @@ import com.design.pattern.bridge.PrintMorseCode;
 import com.design.pattern.bridge.SoundMCF;
 import com.design.pattern.composite.File;
 import com.design.pattern.composite.Folder;
+import com.design.pattern.decorator.Base;
+import com.design.pattern.decorator.Espresso;
+import com.design.pattern.decorator.IBeverage;
+import com.design.pattern.decorator.Milk;
+
+import java.util.Scanner;
 
 /**
  * Created by marathoner on 2021/05/10
@@ -82,6 +88,28 @@ public class Main {
 //        doc.addComponent(doc1);
 //        root.addComponent(usr);
 //        usr.addComponent(java);
+//        --------------------------------------------------------------
+//        ------------------- Decorator Pattern ------------------------
+        Scanner sc = new Scanner(System.in);
+        IBeverage beverage = new Base();
+        boolean done = false;
+        while (!done) {
+            System.out.println("음료 현재 가격 : " + beverage.getTotalPrice());
+            System.out.println("선택 : 1:샷추가 / 2:우유추가");
+            switch (sc.nextInt()) {
+                case 0:
+                    done = true;
+                    break;
+                case 1:
+                    beverage = new Espresso(beverage);
+                    break;
+                case 2:
+                    beverage = new Milk(beverage);
+                    break;
+            }
+        }
+        System.out.println("음료 가격 : " + beverage.getTotalPrice());
+        sc.close();
 //        --------------------------------------------------------------
 
     }
