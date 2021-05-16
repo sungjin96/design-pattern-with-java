@@ -17,7 +17,13 @@ import com.design.pattern.decorator.Base;
 import com.design.pattern.decorator.Espresso;
 import com.design.pattern.decorator.IBeverage;
 import com.design.pattern.decorator.Milk;
+import com.design.pattern.visitor.Visitable;
+import com.design.pattern.visitor.VisitableA;
+import com.design.pattern.visitor.Visitor;
+import com.design.pattern.visitor.VisitorA;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -90,26 +96,41 @@ public class Main {
 //        usr.addComponent(java);
 //        --------------------------------------------------------------
 //        ------------------- Decorator Pattern ------------------------
-        Scanner sc = new Scanner(System.in);
-        IBeverage beverage = new Base();
-        boolean done = false;
-        while (!done) {
-            System.out.println("음료 현재 가격 : " + beverage.getTotalPrice());
-            System.out.println("선택 : 1:샷추가 / 2:우유추가");
-            switch (sc.nextInt()) {
-                case 0:
-                    done = true;
-                    break;
-                case 1:
-                    beverage = new Espresso(beverage);
-                    break;
-                case 2:
-                    beverage = new Milk(beverage);
-                    break;
-            }
+//        Scanner sc = new Scanner(System.in);
+//        IBeverage beverage = new Base();
+//        boolean done = false;
+//        while (!done) {
+//            System.out.println("음료 현재 가격 : " + beverage.getTotalPrice());
+//            System.out.println("선택 : 1:샷추가 / 2:우유추가");
+//            switch (sc.nextInt()) {
+//                case 0:
+//                    done = true;
+//                    break;
+//                case 1:
+//                    beverage = new Espresso(beverage);
+//                    break;
+//                case 2:
+//                    beverage = new Milk(beverage);
+//                    break;
+//            }
+//        }
+//        System.out.println("음료 가격 : " + beverage.getTotalPrice());
+//        sc.close();
+//        --------------------------------------------------------------
+
+//        ------------------- Visitor Pattern ------------------------
+        Visitor visitor = new VisitorA();
+        List<Visitable> visitables = new ArrayList<>();
+        visitables.add(new VisitableA(5));
+        visitables.add(new VisitableA(2));
+        visitables.add(new VisitableA(1));
+        visitables.add(new VisitableA(7));
+
+        for (Visitable visitable : visitables) {
+            visitable.accept(visitor);
         }
-        System.out.println("음료 가격 : " + beverage.getTotalPrice());
-        sc.close();
+        System.out.println(visitor.getAgeSum());
+
 //        --------------------------------------------------------------
 
     }
