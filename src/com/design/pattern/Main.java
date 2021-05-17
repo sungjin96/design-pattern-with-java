@@ -11,6 +11,10 @@ import com.design.pattern.abstractFactory.v2.concrete.FactoryInstance;
 import com.design.pattern.bridge.DefaultMCF;
 import com.design.pattern.bridge.PrintMorseCode;
 import com.design.pattern.bridge.SoundMCF;
+import com.design.pattern.chainOfResposibility.Calculator;
+import com.design.pattern.chainOfResposibility.PlusCalculator;
+import com.design.pattern.chainOfResposibility.Request;
+import com.design.pattern.chainOfResposibility.SubCalculator;
 import com.design.pattern.composite.File;
 import com.design.pattern.composite.Folder;
 import com.design.pattern.decorator.Base;
@@ -119,17 +123,27 @@ public class Main {
 //        --------------------------------------------------------------
 
 //        ------------------- Visitor Pattern ------------------------
-        Visitor visitor = new VisitorA();
-        List<Visitable> visitables = new ArrayList<>();
-        visitables.add(new VisitableA(5));
-        visitables.add(new VisitableA(2));
-        visitables.add(new VisitableA(1));
-        visitables.add(new VisitableA(7));
+//        Visitor visitor = new VisitorA();
+//        List<Visitable> visitables = new ArrayList<>();
+//        visitables.add(new VisitableA(5));
+//        visitables.add(new VisitableA(2));
+//        visitables.add(new VisitableA(1));
+//        visitables.add(new VisitableA(7));
+//
+//        for (Visitable visitable : visitables) {
+//            visitable.accept(visitor);
+//        }
+//        System.out.println(visitor.getAgeSum());
+//        --------------------------------------------------------------
 
-        for (Visitable visitable : visitables) {
-            visitable.accept(visitor);
-        }
-        System.out.println(visitor.getAgeSum());
+//        ------------------- Chain Of Resposibility Pattern ------------------------
+        Calculator plus = new PlusCalculator();
+        Calculator sub = new SubCalculator();
+        plus.setNextCalculator(sub);
+        Request request = new Request(1, 2, "+");
+        Request request2 = new Request(10, 2, "-");
+        plus.process(request);
+        plus.process(request2);
 
 //        --------------------------------------------------------------
 
