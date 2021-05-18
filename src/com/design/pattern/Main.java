@@ -1,34 +1,11 @@
 package com.design.pattern;
 
-import com.design.pattern.abstractFactory.v1.abst.BikeFactory;
-import com.design.pattern.abstractFactory.v1.abst.Body;
-import com.design.pattern.abstractFactory.v1.abst.Wheel;
-import com.design.pattern.abstractFactory.v1.gt.GtFactory;
-import com.design.pattern.abstractFactory.v2.abst.Button;
-import com.design.pattern.abstractFactory.v2.abst.GuiFac;
-import com.design.pattern.abstractFactory.v2.abst.TextArea;
-import com.design.pattern.abstractFactory.v2.concrete.FactoryInstance;
-import com.design.pattern.bridge.DefaultMCF;
-import com.design.pattern.bridge.PrintMorseCode;
-import com.design.pattern.bridge.SoundMCF;
-import com.design.pattern.chainOfResposibility.Calculator;
-import com.design.pattern.chainOfResposibility.PlusCalculator;
-import com.design.pattern.chainOfResposibility.Request;
-import com.design.pattern.chainOfResposibility.SubCalculator;
-import com.design.pattern.composite.File;
-import com.design.pattern.composite.Folder;
-import com.design.pattern.decorator.Base;
-import com.design.pattern.decorator.Espresso;
-import com.design.pattern.decorator.IBeverage;
-import com.design.pattern.decorator.Milk;
-import com.design.pattern.visitor.Visitable;
-import com.design.pattern.visitor.VisitableA;
-import com.design.pattern.visitor.Visitor;
-import com.design.pattern.visitor.VisitorA;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import com.design.pattern.chainOfResposibility.v1.Calculator;
+import com.design.pattern.chainOfResposibility.v1.PlusCalculator;
+import com.design.pattern.chainOfResposibility.v1.Request;
+import com.design.pattern.chainOfResposibility.v1.SubCalculator;
+import com.design.pattern.chainOfResposibility.v2.Armor;
+import com.design.pattern.chainOfResposibility.v2.Attack;
 
 /**
  * Created by marathoner on 2021/05/10
@@ -137,14 +114,15 @@ public class Main {
 //        --------------------------------------------------------------
 
 //        ------------------- Chain Of Resposibility Pattern ------------------------
-        Calculator plus = new PlusCalculator();
-        Calculator sub = new SubCalculator();
-        plus.setNextCalculator(sub);
-        Request request = new Request(1, 2, "+");
-        Request request2 = new Request(10, 2, "-");
-        plus.process(request);
-        plus.process(request2);
+        Attack attack = new Attack(100);
 
+        Armor armor1 = new Armor(10);
+        Armor armor2 = new Armor(15);
+
+        armor1.setNextDefense(armor2);
+        armor1.defense(attack);
+
+        System.out.println(attack.getAmount());
 //        --------------------------------------------------------------
 
     }

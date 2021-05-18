@@ -1,4 +1,4 @@
-package com.design.pattern.chainOfResposibility;
+package com.design.pattern.chainOfResposibility.v1;
 
 /**
  * Created by marathoner on 2021/05/17
