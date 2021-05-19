@@ -6,6 +6,7 @@ import com.design.pattern.chainOfResposibility.v1.Request;
 import com.design.pattern.chainOfResposibility.v1.SubCalculator;
 import com.design.pattern.chainOfResposibility.v2.Armor;
 import com.design.pattern.chainOfResposibility.v2.Attack;
+import com.design.pattern.observer.Button;
 
 /**
  * Created by marathoner on 2021/05/10
@@ -114,15 +115,23 @@ public class Main {
 //        --------------------------------------------------------------
 
 //        ------------------- Chain Of Resposibility Pattern ------------------------
-        Attack attack = new Attack(100);
+//        Attack attack = new Attack(100);
+//
+//        Armor armor1 = new Armor(10);
+//        Armor armor2 = new Armor(15);
+//
+//        armor1.setNextDefense(armor2);
+//        armor1.defense(attack);
+//
+//        System.out.println(attack.getAmount());
+//        --------------------------------------------------------------
 
-        Armor armor1 = new Armor(10);
-        Armor armor2 = new Armor(15);
-
-        armor1.setNextDefense(armor2);
-        armor1.defense(attack);
-
-        System.out.println(attack.getAmount());
+//        ------------------- Observer Pattern ------------------------
+        Button button = new Button();
+        button.setOnClickListener((btn) -> {
+            System.out.println(btn+" is Clicked");
+        });
+        button.onClick();
 //        --------------------------------------------------------------
 
     }
