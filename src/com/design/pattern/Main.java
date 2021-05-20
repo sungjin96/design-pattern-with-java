@@ -6,6 +6,7 @@ import com.design.pattern.chainOfResposibility.v1.Request;
 import com.design.pattern.chainOfResposibility.v1.SubCalculator;
 import com.design.pattern.chainOfResposibility.v2.Armor;
 import com.design.pattern.chainOfResposibility.v2.Attack;
+import com.design.pattern.facade.Facade;
 import com.design.pattern.observer.Button;
 
 /**
@@ -127,12 +128,17 @@ public class Main {
 //        --------------------------------------------------------------
 
 //        ------------------- Observer Pattern ------------------------
-        Button button = new Button();
-        button.setOnClickListener((btn) -> {
-            System.out.println(btn+" is Clicked");
-        });
-        button.onClick();
+//        Button button = new Button();
+//        button.setOnClickListener((btn) -> {
+//            System.out.println(btn+" is Clicked");
+//        });
+//        button.onClick();
 //        --------------------------------------------------------------
+
+//        ------------------- Facade Pattern ------------------------
+        Facade facade = new Facade();
+        facade.process();
+//        -------------------------------------------------------------
 
     }
 }
