@@ -1,4 +1,4 @@
-package com.design.pattern.observer;
+package com.design.pattern.observer.v1;
 
 /**
  * Created by marathoner on 2021/05/19

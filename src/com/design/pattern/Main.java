@@ -1,13 +1,10 @@
 package com.design.pattern;
 
-import com.design.pattern.chainOfResposibility.v1.Calculator;
-import com.design.pattern.chainOfResposibility.v1.PlusCalculator;
-import com.design.pattern.chainOfResposibility.v1.Request;
-import com.design.pattern.chainOfResposibility.v1.SubCalculator;
-import com.design.pattern.chainOfResposibility.v2.Armor;
-import com.design.pattern.chainOfResposibility.v2.Attack;
 import com.design.pattern.facade.Facade;
-import com.design.pattern.observer.Button;
+import com.design.pattern.observer.v2.Button;
+
+import java.util.Observable;
+import java.util.Observer;
 
 /**
  * Created by marathoner on 2021/05/10
@@ -121,13 +118,14 @@ public class Main {
 //        Armor armor1 = new Armor(10);
 //        Armor armor2 = new Armor(15);
 //
+
 //        armor1.setNextDefense(armor2);
 //        armor1.defense(attack);
 //
 //        System.out.println(attack.getAmount());
 //        --------------------------------------------------------------
 
-//        ------------------- Observer Pattern ------------------------
+//        ------------------- Observer v1 Pattern ------------------------
 //        Button button = new Button();
 //        button.setOnClickListener((btn) -> {
 //            System.out.println(btn+" is Clicked");
@@ -135,9 +133,18 @@ public class Main {
 //        button.onClick();
 //        --------------------------------------------------------------
 
+//        ------------------- Observer v2 Pattern ------------------------
+
+//        --------------------------------------------------------------
+        Button button = new Button();
+        button.addObserver((o, arg) -> System.out.println(o + "is Clicked"));
+
+        button.onClick();
+        button.onClick();
+        button.onClick();
 //        ------------------- Facade Pattern ------------------------
-        Facade facade = new Facade();
-        facade.process();
+//        Facade facade = new Facade();
+//        facade.process();
 //        -------------------------------------------------------------
 
     }
