@@ -1,6 +1,10 @@
 package com.design.pattern;
 
 import com.design.pattern.facade.Facade;
+import com.design.pattern.mediator.ChatColleague;
+import com.design.pattern.mediator.ChatMediator;
+import com.design.pattern.mediator.contract.Colleague;
+import com.design.pattern.mediator.contract.Mediator;
 import com.design.pattern.observer.v2.Button;
 
 import java.util.Observable;
@@ -136,15 +140,31 @@ public class Main {
 //        ------------------- Observer v2 Pattern ------------------------
 
 //        --------------------------------------------------------------
-        Button button = new Button();
-        button.addObserver((o, arg) -> System.out.println(o + "is Clicked"));
-
-        button.onClick();
-        button.onClick();
-        button.onClick();
+//        Button button = new Button();
+//        button.addObserver((o, arg) -> System.out.println(o + "is Clicked"));
+//
+//        button.onClick();
+//        button.onClick();
+//        button.onClick();
 //        ------------------- Facade Pattern ------------------------
 //        Facade facade = new Facade();
 //        facade.process();
+//        -------------------------------------------------------------
+
+//        ------------------- mediator Pattern ------------------------
+        Mediator mediator = new ChatMediator();
+        Colleague colleague1 = new ChatColleague();
+        Colleague colleague2 = new ChatColleague();
+        Colleague colleague3 = new ChatColleague();
+
+        colleague1.join(mediator);
+        colleague2.join(mediator);
+        colleague3.join(mediator);
+
+
+        colleague1.sendData("AAA");
+        colleague2.sendData("BBB");
+        colleague3.sendData("CCC");
 //        -------------------------------------------------------------
 
     }
