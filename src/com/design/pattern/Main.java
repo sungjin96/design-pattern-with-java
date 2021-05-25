@@ -6,6 +6,8 @@ import com.design.pattern.mediator.ChatMediator;
 import com.design.pattern.mediator.contract.Colleague;
 import com.design.pattern.mediator.contract.Mediator;
 import com.design.pattern.observer.v2.Button;
+import com.design.pattern.state.Light;
+import com.design.pattern.state.LightState;
 
 import java.util.Observable;
 import java.util.Observer;
@@ -152,19 +154,32 @@ public class Main {
 //        -------------------------------------------------------------
 
 //        ------------------- mediator Pattern ------------------------
-        Mediator mediator = new ChatMediator();
-        Colleague colleague1 = new ChatColleague();
-        Colleague colleague2 = new ChatColleague();
-        Colleague colleague3 = new ChatColleague();
+//        Mediator mediator = new ChatMediator();
+//        Colleague colleague1 = new ChatColleague();
+//        Colleague colleague2 = new ChatColleague();
+//        Colleague colleague3 = new ChatColleague();
+//
+//        colleague1.join(mediator);
+//        colleague2.join(mediator);
+//        colleague3.join(mediator);
+//
+//
+//        colleague1.sendData("AAA");
+//        colleague2.sendData("BBB");
+//        colleague3.sendData("CCC");
+//        -------------------------------------------------------------
 
-        colleague1.join(mediator);
-        colleague2.join(mediator);
-        colleague3.join(mediator);
+//        ------------------- State Pattern ------------------------
+        Light light = new Light();
 
+        light.off();
+        light.off();
+        light.off();
 
-        colleague1.sendData("AAA");
-        colleague2.sendData("BBB");
-        colleague3.sendData("CCC");
+        light.on();
+        light.off();
+        light.on();
+        light.on();
 //        -------------------------------------------------------------
 
     }
