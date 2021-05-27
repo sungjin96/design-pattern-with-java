@@ -5,12 +5,15 @@ import com.design.pattern.mediator.ChatColleague;
 import com.design.pattern.mediator.ChatMediator;
 import com.design.pattern.mediator.contract.Colleague;
 import com.design.pattern.mediator.contract.Mediator;
+import com.design.pattern.memento.abc.Memento;
+import com.design.pattern.memento.abc.Originator;
 import com.design.pattern.observer.v2.Button;
 import com.design.pattern.state.Light;
 import com.design.pattern.state.LightState;
 
 import java.util.Observable;
 import java.util.Observer;
+import java.util.Stack;
 
 /**
  * Created by marathoner on 2021/05/10
@@ -170,16 +173,39 @@ public class Main {
 //        -------------------------------------------------------------
 
 //        ------------------- State Pattern ------------------------
-        Light light = new Light();
+//        Light light = new Light();
+//
+//        light.off();
+//        light.off();
+//        light.off();
+//
+//        light.on();
+//        light.off();
+//        light.on();
+//        light.on();
+//        -------------------------------------------------------------
 
-        light.off();
-        light.off();
-        light.off();
+//        ------------------- memento Pattern ------------------------
+        Stack<Memento> mementos = new Stack<>();
+        Originator originator = new Originator();
 
-        light.on();
-        light.off();
-        light.on();
-        light.on();
+        originator.setState("state 1");
+        mementos.push(originator.createMemento());
+        originator.setState("state 2");
+        mementos.push(originator.createMemento());
+        originator.setState("state 3");
+        mementos.push(originator.createMemento());
+        originator.setState("state Final");
+        mementos.push(originator.createMemento());
+
+        originator.restoreMemento(mementos.pop());
+        System.out.println(originator.getState());
+        originator.restoreMemento(mementos.pop());
+        System.out.println(originator.getState());
+        originator.restoreMemento(mementos.pop());
+        System.out.println(originator.getState());
+        originator.restoreMemento(mementos.pop());
+        System.out.println(originator.getState());
 //        -------------------------------------------------------------
 
     }
