@@ -1,6 +1,8 @@
 package com.design.pattern;
 
 import com.design.pattern.facade.Facade;
+import com.design.pattern.flyweight.Flyweight;
+import com.design.pattern.flyweight.FlyweightFactory;
 import com.design.pattern.mediator.ChatColleague;
 import com.design.pattern.mediator.ChatMediator;
 import com.design.pattern.mediator.contract.Colleague;
@@ -186,27 +188,35 @@ public class Main {
 //        -------------------------------------------------------------
 
 //        ------------------- memento Pattern ------------------------
-        Stack<Memento> mementos = new Stack<>();
-        Originator originator = new Originator();
-
-        originator.setState("state 1");
-        mementos.push(originator.createMemento());
-        originator.setState("state 2");
-        mementos.push(originator.createMemento());
-        originator.setState("state 3");
-        mementos.push(originator.createMemento());
-        originator.setState("state Final");
-        mementos.push(originator.createMemento());
-
-        originator.restoreMemento(mementos.pop());
-        System.out.println(originator.getState());
-        originator.restoreMemento(mementos.pop());
-        System.out.println(originator.getState());
-        originator.restoreMemento(mementos.pop());
-        System.out.println(originator.getState());
-        originator.restoreMemento(mementos.pop());
-        System.out.println(originator.getState());
+//        Stack<Memento> mementos = new Stack<>();
+//        Originator originator = new Originator();
+//
+//        originator.setState("state 1");
+//        mementos.push(originator.createMemento());
+//        originator.setState("state 2");
+//        mementos.push(originator.createMemento());
+//        originator.setState("state 3");
+//        mementos.push(originator.createMemento());
+//        originator.setState("state Final");
+//        mementos.push(originator.createMemento());
+//
+//        originator.restoreMemento(mementos.pop());
+//        System.out.println(originator.getState());
+//        originator.restoreMemento(mementos.pop());
+//        System.out.println(originator.getState());
+//        originator.restoreMemento(mementos.pop());
+//        System.out.println(originator.getState());
+//        originator.restoreMemento(mementos.pop());
+//        System.out.println(originator.getState());
 //        -------------------------------------------------------------
 
+//        ------------------- Flyweight Pattern ------------------------
+        FlyweightFactory factory = new FlyweightFactory();
+        Flyweight flyweight = factory.getPool("A");
+        System.out.println(flyweight);
+
+        flyweight = factory.getPool("A");
+        System.out.println(flyweight);
+//        -------------------------------------------------------------
     }
 }
