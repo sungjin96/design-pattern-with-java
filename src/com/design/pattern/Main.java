@@ -10,6 +10,9 @@ import com.design.pattern.mediator.contract.Mediator;
 import com.design.pattern.memento.abc.Memento;
 import com.design.pattern.memento.abc.Originator;
 import com.design.pattern.observer.v2.Button;
+import com.design.pattern.proxy.Proxy;
+import com.design.pattern.proxy.RealSubject;
+import com.design.pattern.proxy.Subject;
 import com.design.pattern.state.Light;
 import com.design.pattern.state.LightState;
 
@@ -211,12 +214,34 @@ public class Main {
 //        -------------------------------------------------------------
 
 //        ------------------- Flyweight Pattern ------------------------
-        FlyweightFactory factory = new FlyweightFactory();
-        Flyweight flyweight = factory.getPool("A");
-        System.out.println(flyweight);
+//        FlyweightFactory factory = new FlyweightFactory();
+//        Flyweight flyweight = factory.getPool("A");
+//        System.out.println(flyweight);
+//
+//        flyweight = factory.getPool("A");
+//        System.out.println(flyweight);
+//        -------------------------------------------------------------
 
-        flyweight = factory.getPool("A");
-        System.out.println(flyweight);
+//        ------------------- Proxy Pattern ------------------------
+        Subject real = new RealSubject();
+        Subject proxy = new Proxy(real);
+        Subject proxy2 = new Proxy(real);
+        Subject proxy3 = new Proxy(real);
+        Subject proxy4 = new Proxy(real);
+        Subject proxy5 = new Proxy(real);
+
+        proxy.action1();
+        proxy2.action1();
+        proxy3.action1();
+        proxy4.action1();
+        proxy5.action1();
+
+        proxy2.action2();
+        proxy5.action2();
+
+
+
+
 //        -------------------------------------------------------------
     }
 }
