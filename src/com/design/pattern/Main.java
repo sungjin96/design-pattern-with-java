@@ -1,5 +1,7 @@
 package com.design.pattern;
 
+import com.design.pattern.command.Command;
+import com.design.pattern.command.StringPrintCommand;
 import com.design.pattern.facade.Facade;
 import com.design.pattern.flyweight.Flyweight;
 import com.design.pattern.flyweight.FlyweightFactory;
@@ -16,9 +18,7 @@ import com.design.pattern.proxy.Subject;
 import com.design.pattern.state.Light;
 import com.design.pattern.state.LightState;
 
-import java.util.Observable;
-import java.util.Observer;
-import java.util.Stack;
+import java.util.*;
 
 /**
  * Created by marathoner on 2021/05/10
@@ -223,25 +223,32 @@ public class Main {
 //        -------------------------------------------------------------
 
 //        ------------------- Proxy Pattern ------------------------
-        Subject real = new RealSubject();
-        Subject proxy = new Proxy(real);
-        Subject proxy2 = new Proxy(real);
-        Subject proxy3 = new Proxy(real);
-        Subject proxy4 = new Proxy(real);
-        Subject proxy5 = new Proxy(real);
+//        Subject real = new RealSubject();
+//        Subject proxy = new Proxy(real);
+//        Subject proxy2 = new Proxy(real);
+//        Subject proxy3 = new Proxy(real);
+//        Subject proxy4 = new Proxy(real);
+//        Subject proxy5 = new Proxy(real);
+//
+//        proxy.action1();
+//        proxy2.action1();
+//        proxy3.action1();
+//        proxy4.action1();
+//        proxy5.action1();
+//
+//        proxy2.action2();
+//        proxy5.action2();
+//        -------------------------------------------------------------
 
-        proxy.action1();
-        proxy2.action1();
-        proxy3.action1();
-        proxy4.action1();
-        proxy5.action1();
+//        ------------------- Command Pattern ------------------------
+        PriorityQueue<Command> queue = new PriorityQueue<>();
 
-        proxy2.action2();
-        proxy5.action2();
+        queue.add(new StringPrintCommand("A"));
+        queue.add(new StringPrintCommand("AB"));
+        queue.add(new StringPrintCommand("ABC"));
+        queue.add(new StringPrintCommand("ABCD"));
 
-
-
-
+        queue.forEach(Command::execute);
 //        -------------------------------------------------------------
     }
 }
